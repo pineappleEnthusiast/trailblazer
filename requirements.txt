@@ -2,3 +2,6 @@ fastapi[all]
 uvicorn[standard]
 chromadb
 sentence-transformers
+python-dotenv
+google-api-python-client
+youtube-transcript-api
