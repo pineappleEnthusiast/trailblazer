@@ -17,12 +17,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.on_event("startup")
+def startup():
+    seed_example()
+
 class SurveyInput(BaseModel):
     user_input: str
 
 @app.post("/recommend")
 async def recommend_video(data: SurveyInput):
+    video_url = query_videos(data.user_input)
     return {
-        "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "videoUrl": video_url,
         "message": "This is a static default video."
     }
