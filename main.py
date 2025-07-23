@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import database
 
 app = FastAPI()
 
@@ -19,14 +20,14 @@ app.add_middleware(
 
 @app.on_event("startup")
 def startup():
-    seed_example()
+    database.seed_example()
 
 class SurveyInput(BaseModel):
     user_input: str
 
 @app.post("/recommend")
 async def recommend_video(data: SurveyInput):
-    video_url = query_videos(data.user_input)
+    video_url = database.query_videos(data.user_input)
     return {
         "videoUrl": video_url,
         "message": "This is a static default video from Chromadb."

@@ -1,5 +1,6 @@
 import chromadb
 from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
+from datetime import datetime
 
 embedding_fn = SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
 
@@ -45,4 +46,4 @@ def query_videos(user_query: str, n_results: int = 1):
         query_texts=[user_query],
         n_results=n_results
     )
-    return results["metadatas"][0]["video_url"]
+    return results["metadatas"][0][0]["video_url"]
