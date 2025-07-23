@@ -29,5 +29,5 @@ async def recommend_video(data: SurveyInput):
     video_url = query_videos(data.user_input)
     return {
         "videoUrl": video_url,
-        "message": "This is a static default video."
+        "message": "This is a static default video from Chromadb."
     }
