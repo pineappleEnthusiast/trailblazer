@@ -85,7 +85,7 @@ async def refresh():
 
         for item in videos:
             video_id = item["snippet"]["resourceId"]["videoId"]
-            video_url = f"https://www.youtube.com/watch?v={video_id}"
+            video_url = f"https://www.youtube.com/embed/{video_id}"
 
             last_updated = item["snippet"]["publishedAt"]
 
