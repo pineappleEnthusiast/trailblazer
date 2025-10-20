@@ -18,6 +18,9 @@ app = FastAPI()
 # Allow your frontend origin (adjust if needed)
 origins = [
     "http://localhost:5173",  # React dev server
+     "https://framer.com",     # Framer preview
+    "https://trailblazernetwork.framer.ai/",  # If you have a custom Framer page
+    "https://trailblazernetwork.framer.ai/chatbot"
 ]
 
 app.add_middleware(
